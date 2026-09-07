@@ -1,0 +1,488 @@
+<title>سياسة زمن الاسترداد</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@500;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap');
+
+  :root{
+    --bg:#F6F4F0;
+    --surface:#FFFFFF;
+    --surface-2:#FBFAF7;
+    --text:#242220;
+    --text-muted:#6B655C;
+    --border:#DEDAD2;
+    --accent:#3E5C76;
+    --accent-soft:#E7EDF2;
+    --warn:#8A6415;
+    --warn-soft:#F5EBD3;
+    --danger:#A23B2E;
+    --danger-soft:#F6E3DF;
+    --good:#3F6B4F;
+    --good-soft:#E3EEE6;
+    --shadow: 0 1px 2px rgba(36,34,32,0.06), 0 8px 24px rgba(36,34,32,0.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#17181A;
+      --surface:#1F2124;
+      --surface-2:#25272B;
+      --text:#EDEAE4;
+      --text-muted:#A6A199;
+      --border:#35373B;
+      --accent:#8FB2D2;
+      --accent-soft:#233240;
+      --warn:#D9A94B;
+      --warn-soft:#3A311D;
+      --danger:#E08072;
+      --danger-soft:#3A211D;
+      --good:#86C29A;
+      --good-soft:#1E2C22;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.25);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#17181A;
+    --surface:#1F2124;
+    --surface-2:#25272B;
+    --text:#EDEAE4;
+    --text-muted:#A6A199;
+    --border:#35373B;
+    --accent:#8FB2D2;
+    --accent-soft:#233240;
+    --warn:#D9A94B;
+    --warn-soft:#3A311D;
+    --danger:#E08072;
+    --danger-soft:#3A211D;
+    --good:#86C29A;
+    --good-soft:#1E2C22;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.25);
+  }
+
+  *{box-sizing:border-box;}
+  html{background:var(--bg);}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'IBM Plex Sans Arabic','Segoe UI',Tahoma,sans-serif;
+    direction:rtl;
+    line-height:1.75;
+    font-variant-numeric: tabular-nums;
+  }
+  h1,h2,h3{
+    font-family:'Noto Kufi Arabic','IBM Plex Sans Arabic',sans-serif;
+    text-wrap:balance;
+    margin:0;
+  }
+  .wrap{
+    max-width:880px;
+    margin:0 auto;
+    padding:56px 28px 96px;
+  }
+
+  /* header */
+  header{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    padding-bottom:32px;
+    border-bottom:1px solid var(--border);
+    margin-bottom:36px;
+  }
+  .eyebrow{
+    font-size:12.5px;
+    font-weight:700;
+    letter-spacing:0.06em;
+    color:var(--accent);
+    background:var(--accent-soft);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:6px 14px;
+    border-radius:999px;
+    width:fit-content;
+  }
+  h1{
+    font-size:clamp(28px,4vw,38px);
+    font-weight:800;
+    color:var(--text);
+  }
+  .meta-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 28px;
+    font-size:14px;
+    color:var(--text-muted);
+  }
+  .meta-row b{color:var(--text);font-weight:600;}
+  .lede{
+    font-size:16.5px;
+    color:var(--text-muted);
+    max-width:62ch;
+  }
+
+  section{margin-bottom:44px;}
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    margin-bottom:16px;
+  }
+  .section-head h2{
+    font-size:21px;
+    font-weight:700;
+  }
+  .section-head .num{
+    font-family:'Noto Kufi Arabic',sans-serif;
+    font-weight:800;
+    font-size:14px;
+    color:var(--accent);
+    background:var(--accent-soft);
+    min-width:30px;
+    height:30px;
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  p{color:var(--text);}
+  .muted{color:var(--text-muted);}
+
+  /* diagram */
+  figure{margin:0;}
+  .diagram-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:16px;
+    box-shadow:var(--shadow);
+    padding:20px 20px 8px;
+    overflow-x:auto;
+  }
+  figcaption{
+    font-size:13.5px;
+    color:var(--text-muted);
+    margin-top:14px;
+    text-align:center;
+  }
+  svg text{
+    font-family:'IBM Plex Sans Arabic',sans-serif;
+  }
+
+  /* table */
+  .table-scroll{
+    overflow-x:auto;
+    border:1px solid var(--border);
+    border-radius:16px;
+    box-shadow:var(--shadow);
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    background:var(--surface);
+    font-size:14.5px;
+    min-width:720px;
+  }
+  thead th{
+    text-align:right;
+    font-family:'Noto Kufi Arabic',sans-serif;
+    font-weight:700;
+    font-size:13px;
+    color:var(--text-muted);
+    background:var(--surface-2);
+    padding:14px 16px;
+    border-bottom:1px solid var(--border);
+    white-space:nowrap;
+  }
+  tbody td{
+    padding:15px 16px;
+    border-bottom:1px solid var(--border);
+    vertical-align:top;
+  }
+  tbody tr:last-child td{border-bottom:none;}
+  td.stage{font-weight:600;min-width:170px;}
+  td.owner{color:var(--text-muted);white-space:nowrap;}
+  td.target{white-space:nowrap;font-weight:600;}
+  td.trigger{color:var(--text-muted);font-size:13.5px;max-width:280px;}
+  .badge{
+    display:inline-block;
+    padding:3px 10px;
+    border-radius:999px;
+    font-size:12.5px;
+    font-weight:600;
+    background:var(--accent-soft);
+    color:var(--accent);
+  }
+
+  /* panels */
+  .panel{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:16px;
+    box-shadow:var(--shadow);
+    padding:22px 24px;
+  }
+  .panel + .panel{margin-top:14px;}
+  .panel.warn{border-color:color-mix(in srgb, var(--warn) 35%, var(--border));}
+  .panel.danger{border-color:color-mix(in srgb, var(--danger) 35%, var(--border));}
+  .panel.good{border-color:color-mix(in srgb, var(--good) 35%, var(--border));}
+  .panel-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:700;
+    font-size:15.5px;
+    margin-bottom:8px;
+  }
+  .dot{width:9px;height:9px;border-radius:50%;flex:none;}
+  .dot.accent{background:var(--accent);}
+  .dot.warn{background:var(--warn);}
+  .dot.danger{background:var(--danger);}
+  .dot.good{background:var(--good);}
+  .fillin{
+    font-weight:700;
+    color:var(--accent);
+    border-bottom:2px dotted var(--accent);
+    padding-bottom:1px;
+  }
+
+  /* metrics */
+  .metric-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:14px;
+  }
+  .metric{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:16px 18px;
+    box-shadow:var(--shadow);
+  }
+  .metric .k{
+    font-size:13.5px;
+    color:var(--text-muted);
+    margin-bottom:4px;
+  }
+  .metric .v{
+    font-weight:700;
+    font-size:15px;
+  }
+
+  footer{
+    margin-top:56px;
+    padding-top:24px;
+    border-top:1px solid var(--border);
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:10px;
+    font-size:13px;
+    color:var(--text-muted);
+  }
+
+  @media (max-width:560px){
+    .wrap{padding:36px 18px 72px;}
+  }
+</style>
+
+<div class="wrap">
+
+  <header>
+    <span class="eyebrow">سياسة تشغيلية موحدة</span>
+    <h1>سياسة زمن استرداد المبالغ</h1>
+    <div class="meta-row">
+      <span>ساري المفعول اعتباراً من <b>٦ سبتمبر ٢٠٢٦</b></span>
+      <span>الإصدار <b>٢.٠</b></span>
+      <span>الجهة المصدرة: <b>مدير العمليات</b></span>
+    </div>
+    <p class="lede">المتجر يتولى عملية الاسترداد بالكامل من الألف إلى الياء: من استلام الطلب وحتى وصول المبلغ للعميل, ودون أي خطوة يُطلب فيها من العميل المتابعة أو التدخل. بمجرد اجتياز القطعة المرتجعة فحص الجودة, يُرد المبلغ لصاحب الحق فيه فوراً. هذه الوثيقة تحدد المهلة الزمنية الداخلية لكل مرحلة والمسؤول عن تنفيذها.</p>
+  </header>
+
+  <section>
+    <div class="section-head"><span class="num">١</span><h2>لماذا هذه السياسة الآن</h2></div>
+    <p>تأخر بعض حالات الاسترداد لم يكن نتيجة خطأ من موظف بعينه, بل نتيجة غياب مهلة زمنية معلنة لكل مرحلة, واعتماد التصعيد على متابعة يدوية بدلاً من تنبيه تلقائي. هذه الوثيقة تغلق هاتين الفجوتين معاً: مهلة محددة لكل خطوة, وسقف زمني إجمالي واحد لا يتجاوزه أي طلب.</p>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="num">٢</span><h2>مسار العملية من الطلب إلى الاسترداد</h2></div>
+    <figure>
+      <div class="diagram-card">
+        <svg viewBox="0 0 1000 420" role="img" aria-label="مخطط يوضح مسار طلب الاسترداد بدءاً من الطلب وإنشاء طلب الشحن في نفس اليوم, ثم استلام شركة الشحن وتسليم القطعة للمخزن خلال ٣ أيام عمل, ثم فحص الجودة وإخطار قائد الفريق خلال ٢٤ ساعة, ثم الاعتماد, وأخيراً تفرع الاسترداد إلى مسارين: Instapay أو فودافون كاش ينفذه المحاسب فوراً, أو Mastercard يبدأه مدير العمليات ويصل خلال حتى ١٤ يوماً حسب بنك العميل." style="width:100%;height:auto;max-width:960px;display:block;margin:0 auto;">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+            </marker>
+          </defs>
+
+          <!-- main spine, right to left -->
+          <g stroke="currentColor" stroke-width="1.6" fill="none" opacity="0.55">
+            <line x1="905" y1="90" x2="820" y2="90" marker-end="url(#arrow)"/>
+            <line x1="740" y1="90" x2="655" y2="90" marker-end="url(#arrow)"/>
+            <line x1="575" y1="90" x2="490" y2="90" marker-end="url(#arrow)"/>
+          </g>
+
+          <!-- branch down to notify box -->
+          <path d="M490,105 L490,150 Q490,160 480,160 L440,160" stroke="currentColor" stroke-width="1.6" fill="none" opacity="0.55" marker-end="url(#arrow)"/>
+
+          <!-- branch continuing down to approval -->
+          <line x1="490" y1="90" x2="490" y2="230" stroke="currentColor" stroke-width="1.6" opacity="0.55" marker-end="url(#arrow)"/>
+
+          <!-- split into two refund paths -->
+          <path d="M490,255 Q490,280 430,280 L360,280" stroke="currentColor" stroke-width="1.6" fill="none" opacity="0.55" marker-end="url(#arrow)"/>
+          <path d="M490,255 Q490,370 430,370 L360,370" stroke="currentColor" stroke-width="1.6" fill="none" opacity="0.55" marker-end="url(#arrow)"/>
+
+          <!-- nodes: top spine -->
+          <g font-size="13" font-weight="600" text-anchor="middle">
+            <g>
+              <rect x="820" y="66" width="85" height="48" rx="10" fill="var(--surface)" stroke="var(--accent)" stroke-width="1.6"/>
+              <text x="862" y="83" fill="currentColor">طلب الاسترداد</text>
+              <text x="862" y="103" fill="var(--accent)" font-size="10.5">+ إنشاء الشحن</text>
+            </g>
+            <g>
+              <rect x="655" y="66" width="85" height="48" rx="10" fill="var(--surface)" stroke="currentColor" stroke-width="1.2" opacity="0.9"/>
+              <text x="697" y="83" fill="currentColor">استلام الشحن</text>
+              <text x="697" y="103" fill="currentColor" font-size="10.5">وتسليم المخزن</text>
+            </g>
+            <g>
+              <rect x="490" y="66" width="85" height="48" rx="10" fill="var(--warn-soft)" stroke="var(--warn)" stroke-width="1.6"/>
+              <text x="532" y="83" fill="currentColor">فحص الجودة</text>
+              <text x="532" y="103" fill="currentColor" font-size="10.5">QC</text>
+            </g>
+
+            <!-- notify box -->
+            <g>
+              <rect x="335" y="136" width="105" height="48" rx="10" fill="var(--danger-soft)" stroke="var(--danger)" stroke-width="1.6"/>
+              <text x="387" y="156" fill="currentColor" font-size="11.5">إخطار فوري</text>
+              <text x="387" y="173" fill="currentColor" font-size="10.5">لقائد فريق CS</text>
+            </g>
+
+            <!-- approval node -->
+            <g>
+              <rect x="448" y="206" width="85" height="48" rx="10" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.6"/>
+              <text x="490" y="226" fill="currentColor">اعتماد</text>
+              <text x="490" y="243" fill="currentColor" font-size="10.5">الاسترداد</text>
+            </g>
+
+            <!-- two terminal nodes -->
+            <g>
+              <rect x="200" y="256" width="160" height="48" rx="10" fill="var(--good-soft)" stroke="var(--good)" stroke-width="1.6"/>
+              <text x="280" y="276" fill="currentColor">Instapay / فودافون كاش</text>
+              <text x="280" y="293" fill="currentColor" font-size="10.5">المحاسب, يصل فوراً</text>
+            </g>
+            <g>
+              <rect x="200" y="346" width="160" height="48" rx="10" fill="var(--surface)" stroke="currentColor" stroke-width="1.2" opacity="0.9"/>
+              <text x="280" y="366" fill="currentColor">Mastercard</text>
+              <text x="280" y="383" fill="currentColor" font-size="10.5">مدير العمليات, حتى ١٤ يوم</text>
+            </g>
+          </g>
+
+          <!-- SLA labels on arrows -->
+          <g font-size="11.5" fill="currentColor" opacity="0.75" text-anchor="middle">
+            <text x="862" y="55">اليوم نفسه</text>
+            <text x="697" y="55">٣ أيام عمل كحد أقصى</text>
+            <text x="405" y="128">فوري</text>
+            <text x="532" y="55">٢٤ ساعة من الاستلام</text>
+            <text x="245" y="270">فور الاعتماد</text>
+            <text x="245" y="360">فور الاعتماد</text>
+          </g>
+        </svg>
+      </div>
+      <figcaption>سقف السياسة الكلي: ٥ أيام عمل كحد أقصى من تاريخ الطلب حتى بدء تنفيذ الاسترداد. Instapay وفودافون كاش يصلان للعميل فوراً عند التنفيذ (اليوم الخامس كحد أقصى), وMastercard يبدأ خلال نفس المهلة ويصل خلال حتى ١٤ يوماً إضافية حسب سياسة بنك العميل.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="num">٣</span><h2>الحدود الزمنية بالتفصيل</h2></div>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th>المرحلة</th><th>المسؤول</th><th>المهلة</th><th>آلية التنفيذ</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="stage">استلام طلب الاسترداد وإنشاء طلب شحن الإرجاع</td>
+            <td class="owner">موظف خدمة العملاء</td>
+            <td class="target"><span class="badge">نفس اليوم</span></td>
+            <td class="trigger">يُنشأ طلب شحن الإرجاع فور تسجيل طلب العميل, بدون تأخير لليوم التالي</td>
+          </tr>
+          <tr>
+            <td class="stage">استلام شركة الشحن للقطعة وتسليمها للمخزن</td>
+            <td class="owner">شركة الشحن</td>
+            <td class="target"><span class="badge">٣ أيام عمل</span></td>
+            <td class="trigger">-</td>
+          </tr>
+          <tr>
+            <td class="stage">فحص الجودة وإخطار قائد فريق خدمة العملاء</td>
+            <td class="owner">فريق الجرد</td>
+            <td class="target"><span class="badge">٢٤ ساعة من الاستلام</span></td>
+            <td class="trigger">إخطار فوري لقائد الفريق بنتيجة الفحص فور اكتماله, بدون انتظار متابعة يدوية</td>
+          </tr>
+          <tr>
+            <td class="stage">اعتماد الاسترداد</td>
+            <td class="owner">قائد الفريق (حتى <span class="fillin">٥٬٠٠٠ ج.م</span>) / مدير العمليات (أعلى من ذلك)</td>
+            <td class="target"><span class="badge">فور إخطار الجرد</span></td>
+            <td class="trigger">-</td>
+          </tr>
+          <tr>
+            <td class="stage">تنفيذ الاسترداد - Instapay / فودافون كاش</td>
+            <td class="owner">المحاسب</td>
+            <td class="target"><span class="badge">فوري بعد الاعتماد</span></td>
+            <td class="trigger">يصل المبلغ للعميل فوراً عند التنفيذ, في اليوم الخامس من الطلب كحد أقصى</td>
+          </tr>
+          <tr>
+            <td class="stage">بدء تنفيذ الاسترداد - Mastercard</td>
+            <td class="owner">مدير العمليات</td>
+            <td class="target"><span class="badge">فوري بعد الاعتماد</span></td>
+            <td class="trigger">البدء يكون في اليوم الخامس من الطلب كحد أقصى, ويصل المبلغ خلال حتى ١٤ يوماً من تاريخ البدء حسب سياسة بنك العميل, وهذه المدة خارجة عن سيطرة الشركة</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="panel good" style="margin-top:14px;">
+      <div class="panel-title"><span class="dot good"></span>السقف الزمني الإجمالي</div>
+      <p class="muted">من تاريخ الطلب وحتى بدء تنفيذ الاسترداد: <b>٥ أيام عمل كحد أقصى</b>, بلا استثناء. عملاء Instapay وفودافون كاش يستلمون المبلغ خلال هذه المهلة نفسها. عملاء Mastercard: يبدأ التنفيذ خلال نفس المهلة (٥ أيام عمل), ويصل المبلغ فعلياً لحسابهم خلال حتى ١٤ يوماً إضافية من تاريخ البدء, حسب سياسة البنك المُصدر للبطاقة.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="num">٤</span><h2>التفويض</h2></div>
+    <div class="panel">
+      <div class="panel-title"><span class="dot accent"></span>صلاحية قائد الفريق</div>
+      <p class="muted">يُفوَّض قائد الفريق باعتماد طلبات الاسترداد التي لا تتجاوز قيمتها <span class="fillin">٥٬٠٠٠ ج.م</span> دون الرجوع لمدير العمليات لكل حالة على حدة. ما فوق هذا الحد يبقى يتطلب اعتماد مدير العمليات مباشرة. الهدف أن تكون أغلب الحالات هي الاستثناء الذي لا يمر عبر مكتب مدير العمليات, وليس العكس.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="num">٥</span><h2>بروتوكول التواصل الاجتماعي</h2></div>
+    <div class="panel danger">
+      <div class="panel-title"><span class="dot danger"></span>عند وجود شكوى تأخر استرداد على منصات التواصل</div>
+      <p class="muted">رد فوري خلال ساعتين كحد أقصى بالإقرار بالحالة, وتحديث مؤكد بحالة الاسترداد خلال ٤٨ ساعة. عدم الحل خلال هذه المدة يُصعَّد تلقائياً لقائد الفريق ومدير العمليات, قبل أن تتحول إلى تقييم عام أو شكوى لجهاز حماية المستهلك. لا يُترك أي رد معلقاً بلا موعد متابعة محدد.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="num">٦</span><h2>مؤشرات الإنذار المبكر</h2></div>
+    <p class="muted" style="margin-bottom:16px;">تُراجع أسبوعياً لرصد أي تراجع قبل أن يصل للعميل كشكوى.</p>
+    <div class="metric-grid">
+      <div class="metric">
+        <div class="k">نسبة الحالات المتأخرة عن مهلتها</div>
+        <div class="v">تُحسب أسبوعياً لكل مرحلة</div>
+      </div>
+      <div class="metric">
+        <div class="k">شكاوى الاسترداد على التواصل الاجتماعي</div>
+        <div class="v">الهدف: صفر</div>
+      </div>
+      <div class="metric">
+        <div class="k">متوسط الأيام من الطلب حتى بدء الاسترداد</div>
+        <div class="v">الهدف: ٥ أيام أو أقل</div>
+      </div>
+      <div class="metric">
+        <div class="k">حالات متراكمة لأكثر من ٢٤ ساعة</div>
+        <div class="v">لدى مدير العمليات أو المحاسب</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>تسري هذه السياسة على جميع الفروع وفريق خدمة العملاء وفريق التواصل الاجتماعي</span>
+    <span>الإصدار ٢.٠ · ٦ سبتمبر ٢٠٢٦</span>
+  </footer>
+
+</div>
